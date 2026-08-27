@@ -1,7 +1,17 @@
-import { FlatList, StyleSheet, Text, View , Image} from "react-native";
+import { FlatList, StyleSheet, Text, View , Image } from "react-native";
+import { Link } from "expo-router";
 
-type Filme = { id: string; titulo: string; cor: string };
-type Categoria = { id: string; titulo: string; filmes: Filme[] };
+type Filme = {
+  id: string;
+  titulo: string;
+  cor: string;
+  imagem: string;};
+
+  type Categoria = {
+    id: string;
+    titulo: string;
+    filmes: Filme[];
+  };
 
 const categorias: Categoria[] = [
   {
@@ -52,15 +62,30 @@ const categorias: Categoria[] = [
       { id: "5c", titulo: "Get Out", cor: "#97083f", imagem:"https://images.moviesanywhere.com/1eac8b1747c905f18fbc228725204309/1406b595-0ac4-4bd7-90c4-65113b6b157a.jpg" },
       { id: "5d", titulo: "O Exorcista do Papa", cor: "#97083f", imagem:"https://tse3.mm.bing.net/th/id/OIP.KRPlsYGTtvCevwGRezsc5wHaKC?r=0&w=620&h=840&rs=1&pid=ImgDetMain&o=7&rm=3" },
     ],
+    
   },
 ];
 
 function FilmeCard({ item }: { item: Filme }) {
   return (
-    <View >
-      <Image source={{ uri: item.imagem }} style={{ width: 120, height: 170, borderRadius: 6 }} />
-      <Text style={styles.filmeTitulo}>{item.titulo}</Text>
+    <Link href={"/pagina"}>
+    <View style={{ marginRight: 10 }}>
+      
+      <Image
+        source={{ uri: item.imagem }}
+        style={{
+          width: 120,
+          height: 170,
+          borderRadius: 6,
+        }}
+      />
+
+        <Text style={styles.filmeTitulo}>
+          {item.titulo}
+        </Text>
+      
     </View>
+    </Link>
   );
 }
 
