@@ -1,8 +1,29 @@
 import { View, StyleSheet, Image, Text } from 'react-native';
 import { useLocalSearchParams } from "expo-router";
+import DadosDoFilme from '../DadosDoFilme';
 
-export default function App() {
+export interface FilmeProps {
+    id: string;
+    titulo: string;
+    cor: string;
+    imagem: string;
+  }
+
+export default function Filme() {
   const { id } = useLocalSearchParams();
+
+  console.log("ID recebido:", id);
+
+const categorias = DadosDoFilme();
+const filmeEncontrado = categorias
+  .flatMap((categoria) => categoria.filmes)
+  .find((filme) => filme.id === id);
+
+  console.log("Filme encontrado:", filmeEncontrado);
+
+  const filme: FilmeProps = {
+    ...filmeEncontrado,
+  };
 
   return (
     <View style={styles.container}>
@@ -17,7 +38,7 @@ export default function App() {
         }}
         style={styles.imagem}
       />
-
+     
       <Text style={styles.texto}>
         Inspirado nos arquivos reais do Padre Gabriele Amorth, Chefe Exorcista
         do Vaticano. O padre realizou mais de 100.000 exorcismos em sua vida e
