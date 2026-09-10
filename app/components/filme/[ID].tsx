@@ -1,11 +1,19 @@
 import { View, StyleSheet, Image, Text } from 'react-native';
+import { useLocalSearchParams } from "expo-router";
 
 export default function App() {
+  const { id } = useLocalSearchParams();
+
   return (
     <View style={styles.container}>
+      <Text style={styles.titulo}>
+        ID do filme: {id}
+      </Text>
+
       <Image
         source={{
-          uri: "https://tse3.mm.bing.net/th/id/OIP.KRPlsYGTtvCevwGRezsc5wHaKC?r=0&w=620&h=840&rs=1&pid=ImgDetMain&o=7&rm=3"
+          uri:"https://tse3.mm.bing.net/th/id/OIP.KRPlsYGTtvCevwGRezsc5wHaKC?r=0&w=620&h=840&rs=1&pid=ImgDetMain&o=7&rm=3",
+       
         }}
         style={styles.imagem}
       />
@@ -29,8 +37,14 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#000000',
+    backgroundColor: "#000000",
     padding: 10,
+  },
+
+  titulo: {
+    color: "#ffffff",
+    fontSize: 20,
+    marginBottom: 10,
   },
 
   imagem: {
@@ -40,7 +54,7 @@ const styles = StyleSheet.create({
   },
 
   texto: {
-    color: '#ffffff',
+    color: "#ffffff",
     fontSize: 15,
     marginTop: 12,
     lineHeight: 20,

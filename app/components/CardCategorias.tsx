@@ -1,19 +1,21 @@
 import { View, Image, FlatList, StyleSheet,Text } from "react-native";
 import { Link } from "expo-router";
-type Filme = {
+
+       type Filme = {
         id: string;
         titulo: string;
         cor: string;
-        imagem: string;};
+        imagem: string;
+        };
       
         type Categoria = {
-          id: string;
-          titulo: string;
-          filmes: Filme[];
-        };
+         id: string;
+         titulo: string;
+         filmes: Filme[];
+         };
 export  function FilmeCard({ item }: { item: Filme }) {
     return (
-      <Link href={"/pagina"}>
+      <Link href={"/components/filme/" + item.id}>
       <View style={{ marginRight: 10 }}>
         
         <Image

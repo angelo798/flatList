@@ -1,5 +1,4 @@
-import { FlatList, StyleSheet, Text, View , Image } from "react-native";
-import { Link } from "expo-router";
+import { FlatList, StyleSheet, Text, View  } from "react-native";
 import DadosDoFilme from "../components/DadosDoFilme";
 import CategoriaRow from "../components/CardCategorias";
 
@@ -43,8 +42,6 @@ function FilmeCardBanner({ item }: { item: Filme }) {
     </View>
   );
 }
-
-
 
 export default function Netflix() {
   return (
