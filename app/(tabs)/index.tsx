@@ -1,6 +1,7 @@
 import { FlatList, StyleSheet, Text, View  } from "react-native";
 import DadosDoFilme from "../components/DadosDoFilme";
 import CategoriaRow from "../components/CardCategorias";
+import InputBusca from "../components/InputBusca";
 
 const categorias=DadosDoFilme();
 
@@ -46,6 +47,7 @@ function FilmeCardBanner({ item }: { item: Filme }) {
 export default function Netflix() {
   return (
     <View style={styles.container}>
+      <InputBusca />
       <View style={styles.header}>
         <Text style={styles.logo}>N</Text>
       </View>
@@ -64,7 +66,7 @@ export default function Netflix() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#141414",
+    backgroundColor: "#000000",
   },
   header: {
     paddingHorizontal: 16,
@@ -124,7 +126,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     top: 8,
     right: 8,
-    backgroundColor: "rgba(0,0,0,0.6)",
+    backgroundColor: "#000000",
     borderRadius: 4,
     paddingHorizontal: 4,
     paddingVertical: 2,

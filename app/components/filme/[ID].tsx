@@ -1,5 +1,5 @@
 import { View, StyleSheet, Image, Text } from 'react-native';
-import { useLocalSearchParams } from "expo-router";
+import { useLocalSearchParams, Stack } from "expo-router";
 import DadosDoFilme from '../DadosDoFilme';
 
 export interface FilmeProps {
@@ -52,6 +52,10 @@ const filmeEncontrado = categorias
           possessão de um menino e acaba descobrindo uma conspiração secular que o 
           Vaticano tentou desesperadamente proteger e manter no esquecimento.
       </Text>
+      <Stack.Screen options={{ title: filme.titulo,
+        headerStyle: { backgroundColor: '#E50914' },
+        headerTintColor: '#fff',
+       }} />
     </View>
   );
 }
@@ -77,7 +81,7 @@ const styles = StyleSheet.create({
 
   texto: {
     color: "#ffffff",
-    fontSize: 15,
+    fontSize: 14,
     marginTop: 12,
     lineHeight: 20,
   },
