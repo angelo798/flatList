@@ -7,10 +7,11 @@ export interface FilmeProps {
     titulo: string;
     cor: string;
     imagem: string;
+    filme: string;
   }
 
 export default function Filme() {
-  const { id } = useLocalSearchParams();
+  const {id}  = useLocalSearchParams();
 
   console.log("ID recebido:", id);
 
@@ -28,12 +29,12 @@ const filmeEncontrado = categorias
   return (
     <View style={styles.container}>
       <Text style={styles.titulo}>
-        ID do filme: {id}
+        {filme.titulo}
       </Text>
 
       <Image
         source={{
-          uri:"https://tse3.mm.bing.net/th/id/OIP.KRPlsYGTtvCevwGRezsc5wHaKC?r=0&w=620&h=840&rs=1&pid=ImgDetMain&o=7&rm=3",
+          uri: filme.imagem ,
        
         }}
         style={styles.imagem}
